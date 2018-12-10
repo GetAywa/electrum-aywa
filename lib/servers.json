@@ -1,5 +1,11 @@
 {
-    "electrum.dash.siampm.com": {
+    "electrum1.getaywa.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum2.getaywa.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",

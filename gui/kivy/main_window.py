@@ -128,7 +128,7 @@ class ElectrumWindow(App):
         self.send_screen.set_URI(uri)
 
     def on_new_intent(self, intent):
-        if intent.getScheme() != 'dash':
+        if intent.getScheme() != 'aywa':
             return
         uri = intent.getDataString()
         self.set_URI(uri)
@@ -150,7 +150,7 @@ class ElectrumWindow(App):
         self._trigger_update_history()
 
     def _get_bu(self):
-        return self.electrum_config.get('base_unit', 'DASH')
+        return self.electrum_config.get('base_unit', 'AYWA')
 
     def _set_bu(self, value):
         assert value in base_units.keys()
@@ -295,7 +295,7 @@ class ElectrumWindow(App):
         if is_address(data):
             self.set_URI(data)
             return
-        if data.startswith('dash:'):
+        if data.startswith('aywa:'):
             self.set_URI(data)
             return
         # try to decode transaction
@@ -440,7 +440,7 @@ class ElectrumWindow(App):
         self.fiat_unit = self.fx.ccy if self.fx.is_enabled() else ''
         # default tab
         self.switch_to('history')
-        # bind intent for dash: URI scheme
+        # bind intent for aywa: URI scheme
         if platform == 'android':
             from android import activity
             from jnius import autoclass
@@ -483,7 +483,7 @@ class ElectrumWindow(App):
                 self.load_wallet(wallet)
                 self.on_resume()
         else:
-            Logger.debug('Electrum-DASH: Wallet not found. Launching install wizard')
+            Logger.debug('Electrum-Aywa: Wallet not found. Launching install wizard')
             storage = WalletStorage(path)
             wizard = Factory.InstallWizard(self.electrum_config, storage)
             wizard.bind(on_wizard_complete=self.on_wizard_complete)

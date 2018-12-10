@@ -553,7 +553,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         d = self.network.get_donation_address()
         if d:
             host = self.network.get_parameters()[0]
-            self.pay_to_URI('dash:%s?message=donation for %s'%(d, host))
+            self.pay_to_URI('aywa:%s?message=donation for %s'%(d, host))
         else:
             self.show_error(_('No donation address for this server'))
 
@@ -660,11 +660,11 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
     def base_unit(self):
         assert self.decimal_point in [2, 5, 8]
         if self.decimal_point == 2:
-            return 'uDASH'
+            return 'uAYWA'
         if self.decimal_point == 5:
-            return 'mDASH'
+            return 'mAYWA'
         if self.decimal_point == 8:
-            return 'DASH'
+            return 'AYWA'
         raise Exception('Unknown base unit')
 
     def connect_fields(self, window, btc_e, fiat_e, fee_e):
@@ -2119,7 +2119,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         if not data:
             return
         # if the user scanned a dash URI
-        if str(data).startswith("dash:"):
+        if str(data).startswith("aywa:"):
             self.pay_to_URI(data)
             return
         # else if the user scanned an offline signed tx
@@ -2605,9 +2605,9 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         SSL_id_e.setReadOnly(True)
         id_widgets.append((SSL_id_label, SSL_id_e))
 
-        units = ['DASH', 'mDASH', 'uDASH']
+        units = ['AYWA', 'mAYWA', 'uAYWA']
         msg = _('Base unit of your wallet.')\
-              + '\n1DASH=1000mDASH.\n' \
+              + '\n1AYWA=1000mAYWA.\n' \
               + _(' These settings affects the fields in the Send tab')+' '
         unit_label = HelpLabel(_('Base unit') + ':', msg)
         unit_combo = QComboBox()
@@ -2619,11 +2619,11 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
                 return
             edits = self.amount_e, self.fee_e, self.receive_amount_e
             amounts = [edit.get_amount() for edit in edits]
-            if unit_result == 'DASH':
+            if unit_result == 'AYWA':
                 self.decimal_point = 8
-            elif unit_result == 'mDASH':
+            elif unit_result == 'mAYWA':
                 self.decimal_point = 5
-            elif unit_result == 'uDASH':
+            elif unit_result == 'uAYWA':
                 self.decimal_point = 2
             else:
                 raise Exception('Unknown base unit')

@@ -180,7 +180,7 @@ class SendScreen(CScreen):
         try:
             uri = electrum_dash.util.parse_URI(text, self.app.on_pr)
         except:
-            self.app.show_info(_("Not a Dash URI"))
+            self.app.show_info(_("Not an Aywa URI"))
             return
         amount = uri.get('amount')
         self.screen.address = uri.get('address', '')

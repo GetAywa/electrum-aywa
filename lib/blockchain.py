@@ -28,12 +28,12 @@ from . import bitcoin
 from .bitcoin import *
 
 
-target_timespan = 24 * 60 * 60 # Dash: 1 day
-target_spacing = 2.5 * 60 # Dash: 2.5 minutes
+target_timespan = 900# 24 * 60 * 60 # Dash: 1 day
+target_spacing = 1.5 * 60 # Dash: 2.5 minutes
 interval = target_timespan / target_spacing # 576
-max_target = 0x00000ffff0000000000000000000000000000000000000000000000000000000
+max_target = 0x0002fffff0000000000000000000000000000000000000000000000000000000
 
-START_CALC_HEIGHT = 70560
+START_CALC_HEIGHT = 60000 #70560
 USE_DIFF_CALC = False
 
 
@@ -354,6 +354,13 @@ class Blockchain(util.PrintError):
 
         nActualTimespan = max(nActualTimespan, nTargetTimespan/3)
         nActualTimespan = min(nActualTimespan, nTargetTimespan*3)
+
+        target_block_time = height*45*2+1538344800
+        if LastBlockTime - 3 * 90 > target_block_time:
+            actual_timespan *= 1.1
+        if LastBlockTime + 3 * 90 < target_block_time:
+            target_timespan *= 1.1
+
 
         # retarget
         bnNew *= nActualTimespan

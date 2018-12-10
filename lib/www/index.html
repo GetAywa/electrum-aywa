@@ -84,7 +84,7 @@ if (id) {
 };
 
 // See http://stackoverflow.com/questions/29186154/chrome-clicking-mailto-links-closes-websocket-connection
-$(document).on('click', 'a[href^="dash:"]', function (e) {
+$(document).on('click', 'a[href^="aywa:"]', function (e) {
     e.preventDefault();
     var dashWindow = window.open($(e.currentTarget).attr('href'));
     dashWindow.close();
