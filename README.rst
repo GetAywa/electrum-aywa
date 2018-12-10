@@ -1,17 +1,12 @@
-Electrum-DASH - Lightweight Dashpay client
+Electrum-Aywa - Lightweight Aywa client
 =====================================
 
 ::
 
   Licence: MIT Licence
-  Author: Thomas Voegtlin
+  Author: Thomas Voegtlin, Nicon Xenakis
   Language: Python
-  Homepage: https://electrum.dash.org/
-
-
-.. image:: https://travis-ci.org/akhavr/electrum-dash.svg?branch=master
-    :target: https://travis-ci.org/akhavr/electrum-dash
-    :alt: Build Status
+  Homepage: https://getaywa.org/
 
 
 
@@ -20,34 +15,34 @@ Electrum-DASH - Lightweight Dashpay client
 Getting started
 ===============
 
-Electrum-DASH is a pure python application. If you want to use the
+Electrum-Aywa is a pure python application. If you want to use the
 Qt interface, install the Qt dependencies::
 
     sudo apt-get install python3-pyqt5
 
 If you downloaded the official package (tar.gz), you can run
-Electrum-DASH from its root directory, without installing it on your
+Electrum-Aywa from its root directory, without installing it on your
 system; all the python dependencies are included in the 'packages'
-directory (except x11-hash).
+directory (except aywa-hash).
 
-To install x11-hash dependency in the 'packages' dir run once::
+To install aywa-hash dependency in the 'packages' dir run once::
 
-    pip3 install -t packages x11-hash
+    pip3 install git+https://github.com/GetAywa/aywa_hash
 
-To run Electrum-DASH from its root directory, just do::
+To run Electrum-Aywa from its root directory, just do::
 
-    ./electrum-dash
+    ./electrum-aywa
 
-You can also install Electrum-DASH on your system, by running this command::
+You can also install Electrum-Aywa on your system, by running this command::
 
     sudo apt-get install python3-setuptools
     python3 setup.py install
 
 This will download and install the Python dependencies used by
-Electrum-DASH, instead of using the 'packages' directory.
+Electrum-Aywa, instead of using the 'packages' directory.
 
 If you cloned the git repository, you need to compile extra files
-before you can run Electrum-DASH. Read the next section, "Development
+before you can run Electrum-Aywa. Read the next section, "Development
 Version".
 
 
@@ -57,8 +52,8 @@ Development version
 
 Check out the code from Github::
 
-    git clone https://github.com/akhavr/electrum-dash.git
-    cd electrum-dash
+    git clone https://github.com/getaywa/electrum-aywa.git
+    cd electrum-aywa
 
 Run install (this should install dependencies)::
 
@@ -90,7 +85,7 @@ To create binaries, create the 'packages' directory::
 
     ./contrib/make_packages
 
-This directory contains the python dependencies used by Electrum-DASH.
+This directory contains the python dependencies used by Electrum-Aywa.
 
 Mac OS X / macOS
 --------
@@ -103,7 +98,7 @@ Mac OS X / macOS
     # On Homebrew installs: 
     ARCHFLAGS="-arch i386 -arch x86_64" sudo python3 setup-release.py py2app --includes sip
     
-    sudo hdiutil create -fs HFS+ -volname "Electrum-DASH" -srcfolder dist/Electrum-DASH.app dist/electrum-VERSION-macosx.dmg
+    sudo hdiutil create -fs HFS+ -volname "Electrum-Aywa" -srcfolder dist/Electrum-Aywa.app dist/electrum-VERSION-macosx.dmg
 
 Windows
 -------
