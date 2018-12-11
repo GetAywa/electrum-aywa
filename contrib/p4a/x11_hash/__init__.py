@@ -1,10 +1,11 @@
 from pythonforandroid.recipe import CythonRecipe
 
 
-class X11HashRecipe(CythonRecipe):
+class AywaHashRecipe(CythonRecipe):
 
     url = 'https://files.pythonhosted.org/packages/source/x/x11_hash/x11_hash-{version}.tar.gz'
-    md5sum = 'bc08267fee5dedef5e67b60dca59ef00'
+    https://github.com/GetAywa/aywa_hash/releases/download/{version}/aywa_hash-{version}.tar.gz
+	md5sum = 'f59fbea7fcee79b19e81bd4b729f7ace'
     version = '1.4'
     depends = ['python3crystax']
 
@@ -13,4 +14,4 @@ class X11HashRecipe(CythonRecipe):
         return True
 
 
-recipe = X11HashRecipe()
+recipe = AywaHashRecipe()

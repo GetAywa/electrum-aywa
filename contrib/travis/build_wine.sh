@@ -14,7 +14,7 @@ cp contrib/pyi_tctl_runtimehook.py .
 
 wine pip install -r contrib/requirements.txt
 
-wine pip install x11_hash
+wine pip install aywa_hash
 wine pip install cython
 wine pip install hidapi
 wine pip install btchip-python==0.1.24

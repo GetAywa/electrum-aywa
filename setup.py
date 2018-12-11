@@ -45,7 +45,7 @@ setup(
         'dnspython',
         'jsonrpclib-pelix',
         'PySocks>=1.6.6',
-        'x11_hash>=1.4',
+        'aywa_hash>=1.4',
     ],
     packages=[
         'electrum_dash',

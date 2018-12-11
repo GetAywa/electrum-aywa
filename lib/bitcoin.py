@@ -31,7 +31,7 @@ import json
 
 import ecdsa
 import pyaes
-import x11_hash
+import aywa_hash
 
 from .util import bfh, bh2u, to_string
 from . import version
@@ -244,7 +244,7 @@ def Hash(x):
 
 
 def PoWHash(x):
-    return x11_hash.getPoWHash(to_bytes(x))
+    return aywa_hash.getPoWHash(to_bytes(x))
 
 
 hash_encode = lambda x: bh2u(x[::-1])
