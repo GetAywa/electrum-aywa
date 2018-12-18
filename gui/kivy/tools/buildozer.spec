@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = Electrum-DASH
+title = Dash Electrum
 
 # (str) Package name
 package.name = Electrum_DASH
@@ -24,14 +24,14 @@ source.exclude_dirs = bin, build, dist, contrib, gui/qt, gui/kivy/tools, gui/kiv
 source.exclude_patterns = Makefile,setup*
 
 # (str) Application versioning (method 1)
-version.regex = version_apk = '(.*)'
-version.filename = %(source.dir)s/contrib/versions.py
+version.regex = APK_VERSION = '(.*)'
+version.filename = %(source.dir)s/lib/version.py
 
 # (str) Application versioning (method 2)
 #version = 1.9.8
 
 # (list) Application requirements
-requirements = python3crystax, android, openssl, plyer, kivy==1.10.0, aywa_hash
+requirements = python3crystax==3.6, android, openssl, plyer, pyjnius==1.1.2, kivy==master, libsecp256k1, aywa_hash
 
 # (str) Presplash of the application
 #presplash.filename = %(source.dir)s/gui/kivy/theming/splash.png
@@ -108,6 +108,9 @@ android.add_activities = org.dash.electrum.qr.SimpleScannerActivity
 
 # (str) XML file to include as an intent filters in <activity> tag
 android.manifest.intent_filters = gui/kivy/tools/bitcoin_intent.xml
+
+# (str) launchMode to set for the main activity
+android.manifest.launch_mode = singleTask
 
 # (list) Android additionnal libraries to copy into libs/armeabi
 #android.add_libs_armeabi = lib/android/*.so

@@ -22,17 +22,21 @@ set -e
 
 cd tmp
 
-for repo in electrum electrum-locale electrum-icons; do
+for repo in electrum-aywa electrum-locale electrum-icons; do
     if [ -d $repo ]; then
 	cd $repo
 	git pull
 	git checkout master
 	cd ..
     else
-	URL=https://github.com/spesmilo/$repo.git
+	URL=https://github.com/getaywa/$repo.git
+	git checkout aywadevs
 	git clone -b master $URL $repo
     fi
 done
+
+#cd tmp
+mv electrum-aywa electrum
 
 pushd electrum-locale
 for i in ./locale/*; do
