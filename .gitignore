@@ -16,6 +16,10 @@ env/
 .tox/
 .buildozer/
 bin/
+electrum-aywa.config
+electrum-aywa.creator
+electrum-aywa.files
+electrum-aywa.includes
 
 # tox files
 .cache/
