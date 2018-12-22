@@ -560,7 +560,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
     def show_about(self):
         QMessageBox.about(self, "AywaElectrum",
             _("Version")+" %s" % (self.wallet.electrum_version) + "\n\n" +
-                _("AywaElectrum focus is speed, with low resource usage and simplifying Dash. You do not need to perform regular backups, because your wallet can be recovered from a secret phrase that you can memorize or write on paper. Startup times are instant because it operates in conjunction with high-performance servers that handle the most complicated parts of the Dash system."  + "\n\n" +
+                _("AywaElectrum focus is speed, with low resource usage and simplifying Aywa. You do not need to perform regular backups, because your wallet can be recovered from a secret phrase that you can memorize or write on paper. Startup times are instant because it operates in conjunction with high-performance servers that handle the most complicated parts of the Aywa Platform."  + "\n\n" +
                 _("Uses icons from the Icons8 icon pack (icons8.com).")))
 
     def show_report_bug(self):
