@@ -1,4 +1,4 @@
-"""DASH masternode support."""
+"""Aywa Masternode Support."""
 import time
 import base64
 

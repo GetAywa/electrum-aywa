@@ -572,7 +572,7 @@ class Commands:
             PR_PAID: 'Paid',
             PR_EXPIRED: 'Expired',
         }
-        out['amount (DASH)'] = format_satoshis(out.get('amount'))
+        out['amount (AYWA)'] = format_satoshis(out.get('amount'))
         out['status'] = pr_str[out.get('status', PR_UNKNOWN)]
         return out
 
@@ -859,8 +859,8 @@ class Commands:
 
 param_descriptions = {
     'privkey': 'Private key. Type \'?\' to get a prompt.',
-    'destination': 'Dash address, contact or alias',
-    'address': 'Dash address',
+    'destination': 'Aywa address, contact or alias',
+    'address': 'Aywa address',
     'seed': 'Seed phrase',
     'txid': 'Transaction ID',
     'pos': 'Position',
@@ -870,11 +870,11 @@ param_descriptions = {
     'pubkey': 'Public key',
     'message': 'Clear text message. Use quotes if it contains spaces.',
     'encrypted': 'Encrypted message',
-    'amount': 'Amount to be sent (in DASH). Type \'!\' to send the maximum available.',
-    'requested_amount': 'Requested amount (in DASH).',
+    'amount': 'Amount to be sent (in AYWA). Type \'!\' to send the maximum available.',
+    'requested_amount': 'Requested amount (in AYWA).',
     'outputs': 'list of ["address", amount]',
     'redeem_script': 'redeem script (hexadecimal)',
-    'conf_file': 'Masternode.conf file from Dash.',
+    'conf_file': 'Masternode.conf file from AywaCore.',
     'alias': 'Masternode alias.',
 }
 
@@ -891,7 +891,7 @@ command_options = {
     'labels':      ("-l", "Show the labels of listed addresses"),
     'nocheck':     (None, "Do not verify aliases"),
     'imax':        (None, "Maximum number of inputs"),
-    'fee':         ("-f", "Transaction fee (in Dash)"),
+    'fee':         ("-f", "Transaction fee (in AYWA)"),
     'from_addr':   ("-F", "Source address (must be a wallet address; use sweep to spend from non-wallet address)."),
     'change_addr': ("-c", "Change address. Default is a spare address, or the source address if it's not in the wallet"),
     'nbits':       (None, "Number of bits of entropy"),
@@ -937,10 +937,10 @@ config_variables = {
         'requests_dir': 'directory where a bip70 file will be written.',
         'ssl_privkey': 'Path to your SSL private key, needed to sign the request.',
         'ssl_chain': 'Chain of SSL certificates, needed for signed requests. Put your certificate at the top and the root CA at the end',
-        'url_rewrite': 'Parameters passed to str.replace(), in order to create the r= part of aywa: URIs. Example: \"(\'file:///var/www/\',\'https://electrum.dash.org/\')\"',
+        'url_rewrite': 'Parameters passed to str.replace(), in order to create the r= part of aywa: URIs. Example: \"(\'file:///var/www/\',\'http://getaywa.org/\')\"',
     },
     'listrequests':{
-        'url_rewrite': 'Parameters passed to str.replace(), in order to create the r= part of aywa: URIs. Example: \"(\'file:///var/www/\',\'https://electrum.dash.org/\')\"',
+        'url_rewrite': 'Parameters passed to str.replace(), in order to create the r= part of Aywa: URIs. Example: \"(\'file:///var/www/\',\'https://getaywa.org/\')\"',
     }
 }
 
@@ -1016,7 +1016,7 @@ def get_parser():
     add_global_options(parser)
     subparsers = parser.add_subparsers(dest='cmd', metavar='<command>')
     # gui
-    parser_gui = subparsers.add_parser('gui', description="Run Electrum-DASH Graphical User Interface.", help="Run GUI (default)")
+    parser_gui = subparsers.add_parser('gui', description="Run Electrum-Aywa Graphical User Interface.", help="Run GUI (default)")
     parser_gui.add_argument("url", nargs='?', default=None, help="aywa URI (or bip70 file)")
     parser_gui.add_argument("-g", "--gui", dest="gui", help="select graphical user interface", choices=['qt', 'kivy', 'text', 'stdio'])
     parser_gui.add_argument("-o", "--offline", action="store_true", dest="offline", default=False, help="Run offline")

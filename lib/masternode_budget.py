@@ -7,7 +7,7 @@ from . import util
 from .util import bfh
 from .i18n import _
 
-BUDGET_PAYMENTS_CYCLE_BLOCKS = 50 if bitcoin.NetworkConstants.TESTNET else 16616
+BUDGET_PAYMENTS_CYCLE_BLOCKS = 50 if bitcoin.NetworkConstants.TESTNET else 960
 SUBSIDY_HALVING_INTERVAL = 210240
 
 safe_characters = string.ascii_letters + " .,;-_/:?@()"
@@ -106,7 +106,7 @@ class BudgetProposal(object):
             raise ValueError(_('Only P2PKH addresses are currently supported.'))
 
         if self.payment_amount < bitcoin.COIN:
-            raise ValueError(_('Payments must be at least 1 DASH.'))
+            raise ValueError(_('Payments must be at least 1 AYWA.'))
 
         # Calculate max budget.
         subsidy = 5 * bitcoin.COIN
