@@ -15,8 +15,8 @@ The manager displays the following data about each masternode you have set up:
 - The alias (name) of the masternode.
 - Whether the masternode has been activated.
 - The collateral payment of the masternode.
-- The DASH address that received the collateral payment.
-- The DASH address of the delegate key.
+- The Aywa address that received the collateral payment.
+- The Aywa address of the delegate key.
 - The IP address and port that your masternode can be reached at.
 - The protocol version that your masternode supports.
 
@@ -31,7 +31,7 @@ it to.
 A delegate key can either be one of your AywaElectrum keys, or an imported key. Either way, your masternode
 and AywaElectrum will both need to know the private key. (See *Importing Masternode.conf* below.)
 
-To use one of your AywaElectrum keys as a delegate key, put its address in the `Masternode DASH Address`
+To use one of your AywaElectrum keys as a delegate key, put its address in the `Masternode Aywa Address`
 field of the `View Masternode` tab.
 
 ### IP Address and Protocol Version

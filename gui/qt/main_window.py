@@ -168,7 +168,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         if self.config.get("is_maximized"):
             self.showMaximized()
 
-        self.setWindowIcon(QIcon(":icons/electrum-dash.png"))
+        self.setWindowIcon(QIcon(":icons/electrum-aywa.png"))
         self.init_menubar()
 
         wrtabs = weakref.proxy(tabs)
@@ -566,7 +566,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
     def show_report_bug(self):
         msg = ' '.join([
             _("Please report any bugs as issues on github:<br/>"),
-            "<a href=\"https://github.com/akhavr/electrum-dash/issues\">https://github.com/akhavr/electrum-dash/issues</a><br/><br/>",
+            "<a href=\"https://github.com/akhavr/electrum-aywa/issues\">https://github.com/akhavr/electrum-aywa/issues</a><br/><br/>",
             _("Before reporting a bug, upgrade to the most recent version of AywaElectrum (latest release or git HEAD), and include the version number in your report."),
             _("Try to explain not only what the bug is, but how it occurs.")
          ])
@@ -790,7 +790,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         self.receive_address_e = ButtonsLineEdit()
         self.receive_address_e.addCopyButton(self.app)
         self.receive_address_e.setReadOnly(True)
-        msg = _('Dash address where the payment should be received. Note that each payment request uses a different Dash address.')
+        msg = _('Aywa address where the payment should be received. Note that each payment request uses a different Aywa address.')
         self.receive_address_label = HelpLabel(_('Receiving address'), msg)
         self.receive_address_e.textChanged.connect(self.update_receive_qr)
         self.receive_address_e.setFocusPolicy(Qt.NoFocus)
@@ -820,8 +820,8 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         msg = ' '.join([
             _('Expiration date of your request.'),
             _('This information is seen by the recipient if you send them a signed payment request.'),
-            _('Expired requests have to be deleted manually from your list, in order to free the corresponding Dash addresses.'),
-            _('The Dash address never expires and will always be part of this AywaElectrum wallet.'),
+            _('Expired requests have to be deleted manually from your list, in order to free the corresponding Aywa addresses.'),
+            _('The Aywa address never expires and will always be part of this AywaElectrum wallet.'),
         ])
         grid.addWidget(HelpLabel(_('Request expires'), msg), 3, 0)
         grid.addWidget(self.expires_combo, 3, 1)
@@ -1037,7 +1037,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         self.amount_e = BTCAmountEdit(self.get_decimal_point)
         self.payto_e = PayToEdit(self)
         msg = _('Recipient of the funds.') + '\n\n'\
-              + _('You may enter a Dash address, a label from your list of contacts (a list of completions will be proposed), or an alias (email-like address that forwards to a Dash address)')
+              + _('You may enter a Aywa address, a label from your list of contacts (a list of completions will be proposed), or an alias (email-like address that forwards to a Aywa address)')
         payto_label = HelpLabel(_('Pay to'), msg)
         grid.addWidget(payto_label, 1, 0)
         grid.addWidget(self.payto_e, 1, 1, 1, -1)
@@ -1323,10 +1323,10 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
 
         for _type, addr, amount in outputs:
             if addr is None:
-                self.show_error(_('Dash Address is None'))
+                self.show_error(_('Aywa Address is None'))
                 return
             if _type == TYPE_ADDRESS and not bitcoin.is_address(addr):
-                self.show_error(_('Invalid Dash Address'))
+                self.show_error(_('Invalid Aywa Address'))
                 return
             if amount is None:
                 self.show_error(_('Invalid Amount'))
@@ -1970,7 +1970,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         address  = address.text().strip()
         message = message.toPlainText().strip()
         if not bitcoin.is_address(address):
-            self.show_message('Invalid Dash address.')
+            self.show_message('Invalid Aywa address.')
             return
         txin_type = self.wallet.get_txin_type(address)
         if txin_type not in ['p2pkh']:
@@ -1989,7 +1989,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         address  = address.text().strip()
         message = message.toPlainText().strip().encode('utf-8')
         if not bitcoin.is_address(address):
-            self.show_message('Invalid Dash address.')
+            self.show_message('Invalid Aywa address.')
             return
         try:
             # This can throw on invalid base64
@@ -2198,7 +2198,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         e.setReadOnly(True)
         vbox.addWidget(e)
 
-        defaultname = 'electrum-dash-private-keys.csv'
+        defaultname = 'electrum-aywa-private-keys.csv'
         select_msg = _('Select file to export your private keys to')
         hbox, filename_e, csv_button = filename_field(self, self.config, defaultname, select_msg)
         vbox.addLayout(hbox)
@@ -2307,7 +2307,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         d = WindowModalDialog(self, _('Export History'))
         d.setMinimumSize(400, 200)
         vbox = QVBoxLayout(d)
-        defaultname = os.path.expanduser('~/electrum-dash-history.csv')
+        defaultname = os.path.expanduser('~/electrum-aywa-history.csv')
         select_msg = _('Select file to export your wallet transactions to')
         hbox, filename_e, csv_button = filename_field(self, self.config, defaultname, select_msg)
         vbox.addLayout(hbox)

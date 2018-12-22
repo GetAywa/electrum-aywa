@@ -242,7 +242,7 @@ def android_check_data_dir():
     """ if needed, move old directory to sandbox """
     ext_dir = android_ext_dir()
     data_dir = android_data_dir()
-    old_electrum_dir = ext_dir + '/electrum-dash'
+    old_electrum_dir = ext_dir + '/electrum-aywa'
     if not os.path.exists(data_dir) and os.path.exists(old_electrum_dir):
         import shutil
         new_headers_path = android_headers_dir() + 'blockchain_headers'
@@ -323,7 +323,7 @@ def user_dir():
     if 'ANDROID_DATA' in os.environ:
         return android_check_data_dir()
     elif os.name == 'posix':
-        return os.path.join(os.environ["HOME"], ".electrum-dash")
+        return os.path.join(os.environ["HOME"], ".electrum-aywa")
     elif "APPDATA" in os.environ:
         return os.path.join(os.environ["APPDATA"], "AywaElectrum")
     elif "LOCALAPPDATA" in os.environ:
@@ -466,7 +466,7 @@ def parse_URI(uri, on_pr=None):
 
     if ':' not in uri:
         if not bitcoin.is_address(uri):
-            raise BaseException("Not a Dash address")
+            raise BaseException("Not a Aywa address")
         return {'address': uri}
 
     u = urllib.parse.urlparse(uri)
@@ -488,7 +488,7 @@ def parse_URI(uri, on_pr=None):
     out = {k: v[0] for k, v in pq.items()}
     if address:
         if not bitcoin.is_address(address):
-            raise BaseException("Invalid Dash address:" + address)
+            raise BaseException("Invalid Aywa address:" + address)
         out['address'] = address
     if 'amount' in out:
         am = out['amount']

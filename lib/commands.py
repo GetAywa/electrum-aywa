@@ -84,7 +84,7 @@ def command(s):
             wallet = args[0].wallet
             password = kwargs.get('password')
             if c.requires_wallet and wallet is None:
-                raise BaseException("wallet not loaded. Use 'electrum-dash daemon load_wallet'")
+                raise BaseException("wallet not loaded. Use 'electrum-aywa daemon load_wallet'")
             if c.requires_password and password is None and wallet.storage.get('use_encryption'):
                 return {'error': 'Password required' }
             return func(*args, **kwargs)
@@ -137,7 +137,7 @@ class Commands:
     @command('wn')
     def restore(self, text):
         """Restore a wallet from text. Text can be a seed phrase, a master
-        public key, a master private key, a list of Dash addresses
+        public key, a master private key, a list of Aywa addresses
         or Dash private keys. If you want to be prompted for your
         seed, type '?' or ':' (concealed) """
         raise BaseException('Not a JSON-RPC command')
@@ -293,7 +293,7 @@ class Commands:
     @command('')
     def dumpprivkeys(self):
         """Deprecated."""
-        return "This command is deprecated. Use a pipe instead: 'electrum-dash listaddresses | electrum-dash getprivatekeys - '"
+        return "This command is deprecated. Use a pipe instead: 'electrum-aywa listaddresses | electrum-aywa getprivatekeys - '"
 
     @command('')
     def validateaddress(self, address):
@@ -348,7 +348,7 @@ class Commands:
 
     @command('')
     def version(self):
-        """Return the version of electrum-dash."""
+        """Return the version of electrum-aywa."""
         from .version import ELECTRUM_VERSION
         return ELECTRUM_VERSION
 
@@ -494,7 +494,7 @@ class Commands:
 
     @command('w')
     def setlabel(self, key, label):
-        """Assign a label to an item. Item may be a Dash address or a
+        """Assign a label to an item. Item may be a Aywa address or a
         transaction ID"""
         self.wallet.set_label(key, label)
 
@@ -1004,7 +1004,7 @@ def add_network_options(parser):
 def add_global_options(parser):
     group = parser.add_argument_group('global options')
     group.add_argument("-v", "--verbose", action="store_true", dest="verbose", default=False, help="Show debugging information")
-    group.add_argument("-D", "--dir", dest="electrum_path", help="electrum-dash directory")
+    group.add_argument("-D", "--dir", dest="electrum_path", help="electrum-aywa directory")
     group.add_argument("-P", "--portable", action="store_true", dest="portable", default=False, help="Use local 'electrum_data' directory")
     group.add_argument("-w", "--wallet", dest="wallet_path", help="wallet path")
     group.add_argument("--testnet", action="store_true", dest="testnet", default=False, help="Use Testnet")
@@ -1012,7 +1012,7 @@ def add_global_options(parser):
 def get_parser():
     # create main parser
     parser = argparse.ArgumentParser(
-        epilog="Run 'electrum-dash help <command>' to see the help for a command")
+        epilog="Run 'electrum-aywa help <command>' to see the help for a command")
     add_global_options(parser)
     subparsers = parser.add_subparsers(dest='cmd', metavar='<command>')
     # gui
