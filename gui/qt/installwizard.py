@@ -22,7 +22,7 @@ from .password_dialog import PasswordLayout, PW_NEW
 class GoBack(Exception):
     pass
 
-MSG_GENERATING_WAIT = _("Electrum-DASH is generating your addresses, please wait...")
+MSG_GENERATING_WAIT = _("AywaElectrum is generating your addresses, please wait...")
 MSG_ENTER_ANYTHING = _("Please enter a seed phrase, a master key, a list of "
                        "Dash addresses, or a list of private keys")
 MSG_ENTER_SEED_OR_MPK = _("Please enter a seed phrase or a master key (xpub or xprv):")
@@ -102,7 +102,7 @@ class InstallWizard(QDialog, MessageBoxMixin, BaseWizard):
     def __init__(self, config, app, plugins, storage):
         BaseWizard.__init__(self, config, storage)
         QDialog.__init__(self, None)
-        self.setWindowTitle('Electrum-DASH  -  ' + _('Install Wizard'))
+        self.setWindowTitle('AywaElectrum  -  ' + _('Install Wizard'))
         self.app = app
         self.config = config
         # Set for base base class
@@ -174,7 +174,7 @@ class InstallWizard(QDialog, MessageBoxMixin, BaseWizard):
         hbox2.addWidget(self.pw_e)
         hbox2.addStretch()
         vbox.addLayout(hbox2)
-        self.set_layout(vbox, title=_('Electrum-DASH wallet'))
+        self.set_layout(vbox, title=_('AywaElectrum wallet'))
 
         wallet_folder = os.path.dirname(self.storage.path)
 
@@ -242,7 +242,7 @@ class InstallWizard(QDialog, MessageBoxMixin, BaseWizard):
         path = self.storage.path
         if self.storage.requires_split():
             self.hide()
-            msg = _("The wallet '%s' contains multiple accounts, which are no longer supported since Electrum-DASH 2.7.\n\n"
+            msg = _("The wallet '%s' contains multiple accounts, which are no longer supported since AywaElectrum 2.7.\n\n"
                     "Do you want to split your wallet into multiple files?"%path)
             if not self.question(msg):
                 return
@@ -489,10 +489,10 @@ class InstallWizard(QDialog, MessageBoxMixin, BaseWizard):
         return None
 
     def init_network(self, network):
-        message = _("Electrum-DASH communicates with remote servers to get "
+        message = _("AywaElectrum communicates with remote servers to get "
                   "information about your transactions and addresses. The "
                   "servers all fulfill the same purpose only differing in "
-                  "hardware. In most cases you simply want to let Electrum-DASH "
+                  "hardware. In most cases you simply want to let AywaElectrum "
                   "pick one at random.  However if you prefer feel free to "
                   "select a server manually.")
         choices = [_("Auto connect"), _("Select server manually")]

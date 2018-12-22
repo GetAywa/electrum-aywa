@@ -18,7 +18,7 @@ Builder.load_string('''
 
 <SettingsDialog@Popup>
     id: settings
-    title: _('Electrum-DASH Settings')
+    title: _('AywaElectrum Settings')
     disable_pin: False
     use_encryption: False
     BoxLayout:

@@ -7,7 +7,7 @@
 ;--------------------------------
 ;Variables
 
-  !define PRODUCT_NAME "Electrum-DASH"
+  !define PRODUCT_NAME "AywaElectrum"
   !define PRODUCT_WEB_SITE "https://github.com/akhavr/electrum-dash"
   !define PRODUCT_PUBLISHER "Electrum Technologies GmbH"
   !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"

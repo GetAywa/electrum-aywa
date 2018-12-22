@@ -109,7 +109,7 @@ coll = COLLECT(exe, tctl_exe,
                name=os.path.join('dist', 'electrum-dash'))
 
 app = BUNDLE(coll,
-             name=os.path.join('dist', 'Electrum-DASH.app'),
-             appname="Electrum-DASH",
+             name=os.path.join('dist', 'AywaElectrum.app'),
+             appname="AywaElectrum",
 	         icon='electrum-dash.icns',
              version = 'ELECTRUM_VERSION')

@@ -42,6 +42,6 @@ pyinstaller \
     --name electrum-dash-$ELECTRUM_DASH_VERSION.bin \
     osx.spec
 
-sudo hdiutil create -fs HFS+ -volname "Electrum-DASH" \
-    -srcfolder dist/Electrum-DASH.app \
+sudo hdiutil create -fs HFS+ -volname "AywaElectrum" \
+    -srcfolder dist/AywaElectrum.app \
     dist/electrum-dash-$ELECTRUM_DASH_VERSION-macosx.dmg

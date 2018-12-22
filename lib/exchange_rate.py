@@ -40,14 +40,14 @@ class ExchangeBase(PrintError):
         # APIs must have https
         url = ''.join(['https://', site, get_string])
         response = requests.request('GET', url, headers={
-            'User-Agent': 'Electrum-DASH'
+            'User-Agent': 'AywaElectrum'
         })
         return response.json()
 
     def get_csv(self, site, get_string):
         url = ''.join(['https://', site, get_string])
         response = requests.request('GET', url, headers={
-            'User-Agent': 'Electrum-DASH'
+            'User-Agent': 'AywaElectrum'
         })
         reader = csv.DictReader(response.content.decode().split('\n'))
         return list(reader)
