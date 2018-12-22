@@ -1,12 +1,12 @@
-# If you want electrum-dash to appear in a linux app launcher ("start menu"), install this by doing:
+# If you want electrum-aywa to appear in a linux app launcher ("start menu"), install this by doing:
 # sudo desktop-file-install electrum_dash.desktop
 
 [Desktop Entry]
 Comment=Lightweight Dashpay Client
-Exec=electrum-dash %u
+Exec=electrum-aywa %u
 GenericName[en_US]=AywaElectrum
 GenericName=AywaElectrum
-Icon=electrum-dash
+Icon=electrum-aywa
 Name[en_US]=Electrum Dashpay Wallet
 Name=Electrum Dashpay Wallet
 Categories=Network;

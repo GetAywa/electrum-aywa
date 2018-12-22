@@ -6,13 +6,13 @@ if [[ -z $TRAVIS_TAG ]]; then
   exit 1
 fi
 
-BUILD_REPO_URL=https://github.com/akhavr/electrum-dash.git
+BUILD_REPO_URL=https://github.com/akhavr/electrum-aywa.git
 
 cd build
 
-git clone --branch $TRAVIS_TAG $BUILD_REPO_URL electrum-dash
+git clone --branch $TRAVIS_TAG $BUILD_REPO_URL electrum-aywa
 
-cd electrum-dash
+cd electrum-aywa
 
 export PY36BINDIR=/Library/Frameworks/Python.framework/Versions/3.6/bin/
 export PATH=$PATH:$PY36BINDIR
@@ -39,9 +39,9 @@ cp contrib/pyi_tctl_runtimehook.py .
 
 pyinstaller \
     -y \
-    --name electrum-dash-$ELECTRUM_DASH_VERSION.bin \
+    --name electrum-aywa-$ELECTRUM_DASH_VERSION.bin \
     osx.spec
 
 sudo hdiutil create -fs HFS+ -volname "AywaElectrum" \
     -srcfolder dist/AywaElectrum.app \
-    dist/electrum-dash-$ELECTRUM_DASH_VERSION-macosx.dmg
+    dist/electrum-aywa-$ELECTRUM_DASH_VERSION-macosx.dmg

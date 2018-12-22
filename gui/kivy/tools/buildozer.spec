@@ -38,7 +38,7 @@ requirements = python3crystax==3.6, android, openssl, plyer, pyjnius==1.1.2, kiv
 presplash.filename = %(source.dir)s/icons/electrum_presplash.png
 
 # (str) Icon of the application
-icon.filename = %(source.dir)s/icons/electrum-dash.png
+icon.filename = %(source.dir)s/icons/electrum-aywa.png
 
 # (str) Supported orientation (one of landscape, portrait or all)
 orientation = portrait

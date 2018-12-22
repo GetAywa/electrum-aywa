@@ -50,7 +50,7 @@ datas = [
 sys.modules['FixTk'] = None
 excludes = ['FixTk', 'tcl', 'tk', '_tkinter', 'tkinter', 'Tkinter']
 
-a = Analysis(['electrum-dash'],
+a = Analysis(['electrum-aywa'],
              pathex=['plugins'],
              hiddenimports=hiddenimports,
              datas=datas,
@@ -81,8 +81,8 @@ exe = EXE(pyz,
           strip=False,
           upx=False,
           console=False,
-          icon='icons/electrum-dash.ico',
-          name=os.path.join('build/electrum-dash/electrum-dash', cmdline_name))
+          icon='icons/electrum-aywa.ico',
+          name=os.path.join('build/electrum-aywa/electrum-aywa', cmdline_name))
 
 # trezorctl separate bin
 tctl_a = Analysis([os.path.join(PY36BINDIR, 'trezorctl')],
@@ -99,17 +99,17 @@ tctl_exe = EXE(tctl_pyz,
            strip=False,
            upx=False,
            console=True,
-           name=os.path.join('build/electrum-dash/electrum-dash', 'trezorctl.bin'))
+           name=os.path.join('build/electrum-aywa/electrum-aywa', 'trezorctl.bin'))
 
 coll = COLLECT(exe, tctl_exe,
                a.binaries,
                a.datas,
                strip=False,
                upx=False,
-               name=os.path.join('dist', 'electrum-dash'))
+               name=os.path.join('dist', 'electrum-aywa'))
 
 app = BUNDLE(coll,
              name=os.path.join('dist', 'AywaElectrum.app'),
              appname="AywaElectrum",
-	         icon='electrum-dash.icns',
+	         icon='electrum-aywa.icns',
              version = 'ELECTRUM_VERSION')

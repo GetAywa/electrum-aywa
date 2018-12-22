@@ -46,7 +46,7 @@ datas = [
 sys.modules['FixTk'] = None
 excludes = ['FixTk', 'tcl', 'tk', '_tkinter', 'tkinter', 'Tkinter']
 
-a = Analysis(['electrum-dash'],
+a = Analysis(['electrum-aywa'],
              pathex=['plugins'],
              hiddenimports=hiddenimports,
              datas=datas,
@@ -77,7 +77,7 @@ exe = EXE(pyz,
           strip=False,
           upx=False,
           console=False,
-          icon='icons/electrum-dash.ico',
+          icon='icons/electrum-aywa.ico',
           name=os.path.join('build\\pyi.win32\\electrum', cmdline_name))
 
 # exe with console output
@@ -88,7 +88,7 @@ conexe = EXE(pyz,
           strip=False,
           upx=False,
           console=True,
-          icon='icons/electrum-dash.ico',
+          icon='icons/electrum-aywa.ico',
           name=os.path.join('build\\pyi.win32\\electrum',
                             'console-%s' % cmdline_name))
 
@@ -114,4 +114,4 @@ coll = COLLECT(exe, conexe, tctl_exe,
                a.datas,
                strip=False,
                upx=False,
-               name=os.path.join('dist', 'electrum-dash'))
+               name=os.path.join('dist', 'electrum-aywa'))
