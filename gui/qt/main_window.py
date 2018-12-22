@@ -143,7 +143,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         self.contacts_tab = self.create_contacts_tab()
         # Disabled until API is stable.
 #        tabs.addTab(self.create_proposals_tab(), _('Budget Proposals'))
-        tabs.setMinimumSize(1020, 500)
+        tabs.setMinimumSize(700, 400)
         tabs.setObjectName("main_window_nav_bar")
         tabs.addTab(self.create_history_tab(), QIcon(":icons/tab_history.png"), _('History'))
         tabs.addTab(self.send_tab, QIcon(":icons/tab_send.png"), _('Send'))
@@ -2546,7 +2546,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         self.fee_unit = self.config.get('fee_unit', 0)
         fee_unit_label = HelpLabel(_('Fee Unit') + ':', '')
         fee_unit_combo = QComboBox()
-        fee_unit_combo.addItems([_('sat/byte'), _('mDASH/kB')])
+        fee_unit_combo.addItems([_('sat/byte'), _('mAYWA/kB')])
         fee_unit_combo.setCurrentIndex(self.fee_unit)
         def on_fee_unit(x):
             self.fee_unit = x
